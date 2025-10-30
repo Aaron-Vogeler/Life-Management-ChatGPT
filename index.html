@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowframe – Minimal Project Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand__icon">◎</div>
+          <div>
+            <h1>Flowframe</h1>
+            <p>Craft your own productivity canvas.</p>
+          </div>
+        </div>
+        <section class="panel">
+          <h2>Theme</h2>
+          <div class="panel__group">
+            <label class="panel__control">
+              <span>Background</span>
+              <input type="color" id="backgroundColor" />
+            </label>
+            <label class="panel__control">
+              <span>Surface</span>
+              <input type="color" id="surfaceColor" />
+            </label>
+            <label class="panel__control">
+              <span>Accent</span>
+              <input type="color" id="accentColor" />
+            </label>
+            <label class="panel__control">
+              <span>Text</span>
+              <input type="color" id="textColor" />
+            </label>
+            <button id="restorePalette" class="ghost">Restore beige palette</button>
+          </div>
+        </section>
+        <section class="panel">
+          <h2>Workspace</h2>
+          <div class="panel__group">
+            <label class="panel__control">
+              <span>Layout density</span>
+              <input type="range" id="densitySlider" min="320" max="520" step="20" />
+            </label>
+            <div class="panel__control">
+              <label for="addModuleSelect">Add module</label>
+              <div class="add-module">
+                <select id="addModuleSelect"></select>
+                <button id="addModuleButton">Add</button>
+              </div>
+            </div>
+            <p class="panel__hint">
+              Toggle visibility from the module header or drag cards to reorder.
+            </p>
+          </div>
+        </section>
+        <section class="panel">
+          <h2>Snapshots</h2>
+          <div class="panel__group">
+            <button id="saveSnapshot">Save current layout</button>
+            <div class="snapshot-list" id="snapshotList"></div>
+          </div>
+        </section>
+      </aside>
+      <main class="workspace">
+        <header class="workspace__header">
+          <div>
+            <h2>Today&apos;s Momentum</h2>
+            <p class="workspace__subtitle">
+              Build your own flow of projects, tasks and notes. Every panel is yours to shape.
+            </p>
+          </div>
+          <button id="focusModeToggle" class="ghost">Enter focus mode</button>
+        </header>
+        <div class="modules" id="modulesGrid" aria-live="polite"></div>
+      </main>
+    </div>
+    <div id="dragGhost" class="drag-ghost" aria-hidden="true"></div>
+    <template id="emptyStateTemplate">
+      <div class="empty">
+        <h3>Your canvas is empty</h3>
+        <p>Add modules from the sidebar to start shaping your workspace.</p>
+      </div>
+    </template>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
